@@ -1,0 +1,13 @@
+<h1>Posts</h1>
+
+{% for post in posts %}
+    <h2>{{post.title}}</h2>
+    <h3>{{post.date}}</h3>
+    <!-- |truncatechars:100 hace que muestre solo los primeros 100 caracteres de cada post -->
+    <!-- safe permite que "interprete html en los posts. Si en descripción dice <strong>important</strong>, important sale en negrita" -->
+    <!-- striptags remueve tags html en texto -->
+    <p>{{post.description|striptags|truncatechars:100}}</p>
+    <img src="{{post.image.url}}" alt="{{post.title}}">
+    <!-- blog corresponde a app_name en blog/urls.py, post_detail es el name, post.id es un parámetro -->
+    <a href="{% url 'blog:post_detail' post.id %}">{{post.title}}</a>
+{% endfor %}

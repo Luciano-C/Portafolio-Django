@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 # Para poder ver las imágenes en la carpeta media pública
 from django.conf.urls.static import static
@@ -25,7 +25,9 @@ from portfolio import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.home, name="home")
+    path("", views.home, name="home"),
+    # Enlaza las rutas en blog/urls.py con las rutas del proyecto, de esta manera se pueden crear ahí y mantener el orden
+    path("blog/", include("blog.urls"))
 ]
 
 # Para poder ver las imágenes en la carpeta media pública
