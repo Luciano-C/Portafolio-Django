@@ -2,19 +2,51 @@
 
 {% block content %}
 {% load static %}
-<h1>Welcome</h1>
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img src="{% static 'portfolio/foto_perfil.jpg'%}" alt="">
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1>Hi, I am <strong>Ryan Ray</strong></h1>
+        <h3>I am a Python FullStack developer</h3>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam laudantium, repudiandae, quae repellat et
+            ex quisquam quasi itaque quam, expedita blanditiis voluptatibus hic voluptatem nisi facere? Fugiat rem
+            voluptates consequatur quod debitis tenetur earum esse laudantium magni dolorum, modi perspiciatis ex
+            molestias, cumque illo saepe magnam? Cumque ipsam vel doloribus labore itaque! Facilis voluptates
+            perspiciatis laboriosam voluptatum corporis sequi! Harum ducimus natus recusandae iusto ipsam fugiat quos
+            pariatur accusantium officia at. Dolor odit, architecto delectus sint culpa suscipit asperiores enim
+            repellendus nulla, fuga magnam cumque eaque? Enim ratione similique provident, neque quae delectus,
+            accusamus sint nesciunt eius dicta maxime doloremque?
+        </p>
+        <a href="{% static 'portfolio/cv.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+    </div>
 
+</header>
 
-<img src="{% static 'portfolio/photo-1511367461989-f85a21fda167.jpg'%}" alt="">
-<!-- Itera en el objecto projects que viene desde views.py -->
-{% for project in projects %}
+<div class="row my-4 text-center">
 
-<h2>{{project.title}}</h2>
-<p>{{project.description}}</p>
-<img src="{{project.image.url}}" alt="{{project.title}}">
-{% if project.url %}
-<a href="{{project.url}}">{{project.url}}</a>
-{% endif %}
-{% endfor %}
+    <h3>My Projects</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, itaque.</p>
 
-{% endblock %}
+    <!-- Itera en el objecto projects que viene desde views.py -->
+    {% for project in projects %}
+
+    <div class="col-md-4">
+        <div class="card bg-black card-project">
+            <img src="{{project.image.url}}" alt="{{project.title}}" class="card-img-top img-projects">
+            <div class="card-body">
+                <h2>{{project.title}}</h2>
+                <p>{{project.description}}</p>
+                {% if project.url %}
+                <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    
+    {% endfor %}
+
+    {% endblock %}
+</div>

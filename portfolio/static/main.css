@@ -1,3 +1,31 @@
 body {
     background: #090909;
 }
+
+.bg-black {
+    background: black;
+}
+
+.card-project:hover {
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+
+.img-projects {
+    height: 15em;
+    width: 100%;
+    object-fit: cover;
+}
+
+.img-blog {
+    height: 15em;
+    width: 100%;
+    object-fit: cover;
+}
+
+.img-post-detail {
+    height: 40em;
+    width: 100%;
+    object-fit: cover;
+}
